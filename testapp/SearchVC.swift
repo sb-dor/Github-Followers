@@ -48,6 +48,7 @@ class SearchVC: UIViewController {
         // if isUserNameEntered is true code excecution will go on
         // else the code will be returned
         guard isUserNameEntered else {
+            presentGFAlertOnMainThread(title: "Empty User Name", message: "Please enter a username😀", buttonTitle: "OK")
             return
         }
         

@@ -29,6 +29,7 @@ class GFTextField: UITextField {
         tintColor = .label // white on dark mode, black on light mode
         textAlignment = .center
         font = UIFont.preferredFont(forTextStyle: .title2)
+        // if the text if too long it will small that
         adjustsFontSizeToFitWidth = true
         minimumFontSize = 12
         backgroundColor = .tertiarySystemBackground
