@@ -35,7 +35,8 @@ class GFTextField: UITextField {
         autocorrectionType = .no
         
         placeholder = "Enter user name"
-        
+        returnKeyType = .go
+//        keyboardType = .emailAddress
         
     }
     

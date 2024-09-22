@@ -20,6 +20,7 @@ class SearchVC: UIViewController {
         configureLogoImageView()
         configureTextField()
         configureButton()
+        createDismissGestureDetector()
     }
     
     
@@ -27,6 +28,20 @@ class SearchVC: UIViewController {
         super.viewWillAppear(animated)
         // will remove title in appbar
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func createDismissGestureDetector() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    // in order to set this function to the "#selector" above
+    @objc private func pushFollowerLisrView() {
+        let followerListVC = FolloweListVCViewController()
+        followerListVC.userName = userNameTextField.text
+        followerListVC.title = userNameTextField.text
+        navigationController?.pushViewController(followerListVC, animated: true)
     }
     
     private func configureLogoImageView() {
@@ -44,6 +59,7 @@ class SearchVC: UIViewController {
     
     private func configureTextField() {
         view.addSubview(userNameTextField)
+        userNameTextField.delegate = self
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         
         // to the trailing and bottomAnchor set negative value
@@ -58,7 +74,7 @@ class SearchVC: UIViewController {
     private func configureButton() {
         view.addSubview(callActionButton)
         callActionButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        callActionButton.addTarget(self, action: #selector(pushFollowerLisrView), for: .touchUpInside)
         // to the trailing and bottomAnchor set negative value
         NSLayoutConstraint.activate([
             callActionButton.bottomAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.bottomAnchor, multiplier: -50),
@@ -80,4 +96,12 @@ class SearchVC: UIViewController {
     }
     */
 
+}
+
+extension SearchVC : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("did tap return")
+        pushFollowerLisrView()
+        return true;
+    }
 }
