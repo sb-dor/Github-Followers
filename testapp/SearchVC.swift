@@ -13,6 +13,10 @@ class SearchVC: UIViewController {
     let userNameTextField   = GFTextField()
     let callActionButton    = GFButton(background: .systemGreen, title: "Gett followers")
     
+    var isUserNameEntered: Bool {
+        return !(userNameTextField.text?.isEmpty ?? false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground // if theme if dark it will be dark, if white will be white
@@ -38,6 +42,15 @@ class SearchVC: UIViewController {
     
     // in order to set this function to the "#selector" above
     @objc private func pushFollowerLisrView() {
+//        if !isUserNameEntered { return }
+        
+        // you can write the if statement above like this:
+        // if isUserNameEntered is true code excecution will go on
+        // else the code will be returned
+        guard isUserNameEntered else {
+            return
+        }
+        
         let followerListVC = FolloweListVCViewController()
         followerListVC.userName = userNameTextField.text
         followerListVC.title = userNameTextField.text

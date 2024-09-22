@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = createTabbar()
         window?.makeKeyAndVisible()
+        configureNavigationBar()
     }
     
     // we could create on function that takes 5 parameters
@@ -54,6 +55,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ]
         
         return tabbar;
+    }
+    
+    private func configureNavigationBar() {
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
