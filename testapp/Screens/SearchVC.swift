@@ -91,7 +91,7 @@ class SearchVC: UIViewController {
         callActionButton.addTarget(self, action: #selector(pushFollowerLisrView), for: .touchUpInside)
         // to the trailing and bottomAnchor set negative value
         NSLayoutConstraint.activate([
-            callActionButton.bottomAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.bottomAnchor, multiplier: -50),
+            callActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             
             callActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             callActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),

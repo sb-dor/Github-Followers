@@ -94,6 +94,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E7350052CA0FDF1008AFB6C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2EF24FF72CA02BDF006597FF /* FavoriteListVC.swift */,
+				2EF24FF52CA02BB8006597FF /* SearchVC.swift */,
+				2EF24FFD2CA06911006597FF /* FolloweListVCViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2E7350062CA0FE5D008AFB6C /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				2EF24FF92CA03516006597FF /* GFButton.swift */,
+				2EF24FFB2CA03AA9006597FF /* GFTextField.swift */,
+				2EF24FFF2CA07323006597FF /* GFTitleLabel.swift */,
+				2EF250012CA074CA006597FF /* GFBodyLabel.swift */,
+				2EF250032CA0759C006597FF /* GFAlertVC.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		2E7350072CA0FEA2008AFB6C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2EF250052CA07D49006597FF /* ViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2EF24FB72C9E6FCF006597FF = {
 			isa = PBXGroup;
 			children = (
@@ -117,22 +147,16 @@
 		2EF24FC22C9E6FCF006597FF /* testapp */ = {
 			isa = PBXGroup;
 			children = (
+				2E7350072CA0FEA2008AFB6C /* Extensions */,
+				2E7350062CA0FE5D008AFB6C /* Custom Views */,
+				2E7350052CA0FDF1008AFB6C /* Screens */,
 				2EF24FC32C9E6FCF006597FF /* AppDelegate.swift */,
 				2EF24FC52C9E6FCF006597FF /* SceneDelegate.swift */,
-				2EF24FF92CA03516006597FF /* GFButton.swift */,
 				2EF24FC72C9E6FCF006597FF /* ViewController.swift */,
 				2EF24FCC2C9E6FCF006597FF /* Assets.xcassets */,
 				2EF24FCE2C9E6FCF006597FF /* LaunchScreen.storyboard */,
 				2EF24FD12C9E6FCF006597FF /* Info.plist */,
 				2EF24FF32CA02226006597FF /* TestSwiftLearning.swift */,
-				2EF24FF52CA02BB8006597FF /* SearchVC.swift */,
-				2EF24FF72CA02BDF006597FF /* FavoriteListVC.swift */,
-				2EF24FFB2CA03AA9006597FF /* GFTextField.swift */,
-				2EF24FFD2CA06911006597FF /* FolloweListVCViewController.swift */,
-				2EF24FFF2CA07323006597FF /* GFTitleLabel.swift */,
-				2EF250012CA074CA006597FF /* GFBodyLabel.swift */,
-				2EF250032CA0759C006597FF /* GFAlertVC.swift */,
-				2EF250052CA07D49006597FF /* ViewController+Ext.swift */,
 			);
 			path = testapp;
 			sourceTree = "<group>";
