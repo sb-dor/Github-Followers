@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2EC36B8E2CA1CE3600C3951D /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC36B8D2CA1CE3600C3951D /* Follower.swift */; };
 		2EC36B902CA1CFD300C3951D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC36B8F2CA1CFD300C3951D /* User.swift */; };
+		2EC36B942CA1DA2500C3951D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC36B932CA1DA2500C3951D /* NetworkManager.swift */; };
 		2EF24FC42C9E6FCF006597FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF24FC32C9E6FCF006597FF /* AppDelegate.swift */; };
 		2EF24FC62C9E6FCF006597FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF24FC52C9E6FCF006597FF /* SceneDelegate.swift */; };
 		2EF24FC82C9E6FCF006597FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF24FC72C9E6FCF006597FF /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		2EC36B8D2CA1CE3600C3951D /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		2EC36B8F2CA1CFD300C3951D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2EC36B932CA1DA2500C3951D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2EF24FC02C9E6FCF006597FF /* testapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF24FC32C9E6FCF006597FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF24FC52C9E6FCF006597FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2EC36B912CA1DA0F00C3951D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		2EC36B922CA1DA1200C3951D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2EC36B932CA1DA2500C3951D /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		2EF24FB72C9E6FCF006597FF = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +177,8 @@
 		2EF24FC22C9E6FCF006597FF /* testapp */ = {
 			isa = PBXGroup;
 			children = (
+				2EC36B922CA1DA1200C3951D /* Managers */,
+				2EC36B912CA1DA0F00C3951D /* New Group */,
 				2EC36B8C2CA1CE1A00C3951D /* Models */,
 				2E7350072CA0FEA2008AFB6C /* Extensions */,
 				2E7350062CA0FE5D008AFB6C /* Custom Views */,
@@ -326,6 +345,7 @@
 				2EC36B8E2CA1CE3600C3951D /* Follower.swift in Sources */,
 				2EF24FC82C9E6FCF006597FF /* ViewController.swift in Sources */,
 				2EF24FF62CA02BB8006597FF /* SearchVC.swift in Sources */,
+				2EC36B942CA1DA2500C3951D /* NetworkManager.swift in Sources */,
 				2EF24FFC2CA03AA9006597FF /* GFTextField.swift in Sources */,
 				2EF24FC42C9E6FCF006597FF /* AppDelegate.swift in Sources */,
 				2EF250042CA0759C006597FF /* GFAlertVC.swift in Sources */,
