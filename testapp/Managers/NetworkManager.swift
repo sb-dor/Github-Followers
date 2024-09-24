@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let baseUrl = "https://api/github.com/users/"
+    let baseUrl = "https://api.github.com/users/"
     
     private init() {
         
@@ -20,10 +20,10 @@ class NetworkManager {
     // - userName: The username whose followers you want to retrieve
     // - page: The page number for paginated followers list
     // - completed: A completion handler that returns either an array of Follower objects or an error message
-    func getFollowers(for userName: String, page: Int, completed: @escaping ([Follower]?, String?) -> Void) {
+    func getFollowers(for userName: String?, page: Int, completed: @escaping ([Follower]?, String?) -> Void) {
         
         // Constructing the API endpoint URL for fetching followers
-        let endpoint = baseUrl + "\(userName)/followers?per_page=100&page=\(page)"
+        let endpoint = baseUrl + "\(userName ?? "")/followers?per_page=100&page=\(page)"
         
         // Attempting to convert the endpoint string into a URL object
         guard let url = URL(string: endpoint) else {
@@ -35,6 +35,7 @@ class NetworkManager {
         // Creating a data task to fetch data from the constructed URL
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
+            // the _ is optional 
             // Check if an error occurred during the network request
             if let _ = error {
                 // If an error exists, complete with an error message and return
