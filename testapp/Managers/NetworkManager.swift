@@ -70,7 +70,8 @@ class NetworkManager {
                 completed(followers, nil)
             } catch {
                 // If decoding fails, complete with an error message
-                completed(nil, "Error occurred while decoding data from server")
+//                completed(nil, "Error occurred while decoding data from server")
+                completed(nil, error.localizedDescription)
             }
         }
         
