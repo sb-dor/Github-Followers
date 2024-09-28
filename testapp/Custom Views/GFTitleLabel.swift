@@ -32,6 +32,7 @@ class GFTitleLabel: UILabel {
         minimumScaleFactor = 0.90
         // it look like the text ellipses in flutter
         lineBreakMode = .byTruncatingTail
+        numberOfLines = 1
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

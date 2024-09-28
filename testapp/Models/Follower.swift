@@ -30,7 +30,7 @@ import Foundation
 // it will match that and autmotaically set the value into field
 // you done have to write like in Dart -> factory Follower.fromJson() and so on
 // you can write fields in camelcase and Codable will convert that into snakeCase
-struct Follower : Codable {
+struct Follower : Codable, Hashable {
     var login: String?
     var avatarUrl : String?
     

@@ -26,7 +26,6 @@ class FollowerCell: UICollectionViewCell {
     
     func set(follower: Follower?) {
         userNameLabel.text = follower?.login
-        
     }
     
     private func configureAvatartImageVoew() {
@@ -43,8 +42,10 @@ class FollowerCell: UICollectionViewCell {
     private func configureUserNameLabel() {
         addSubview(userNameLabel)
         
+        userNameLabel.textAlignment = .center
+        
         NSLayoutConstraint.activate([
-            userNameLabel.topAnchor.constraint(equalTo: avatartImageView.bottomAnchor, constant: 20),
+            userNameLabel.topAnchor.constraint(equalTo: avatartImageView.bottomAnchor, constant: 10),
             userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             userNameLabel.heightAnchor.constraint(equalToConstant: 20)
