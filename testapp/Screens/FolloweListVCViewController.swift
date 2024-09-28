@@ -11,11 +11,35 @@ class FolloweListVCViewController: UIViewController {
     
     var userName : String?
     
+    // collection view is similar to Flutter's ListView or GridView
+    var collectionView : UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+        configureViewContoller()
+        getFollowers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func configureViewContoller() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func configure() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewLayout())
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemPink
+        collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseId)
         
+    }
+    
+    private func getFollowers() {
         NetworkManager.shared.getFollowers(for: userName, page: 1) { result in
             
             
@@ -34,10 +58,5 @@ class FolloweListVCViewController: UIViewController {
             //            }
             
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
