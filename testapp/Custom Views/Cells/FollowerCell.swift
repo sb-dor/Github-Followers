@@ -17,7 +17,6 @@ class FollowerCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureAvatartImageVoew()
-        configureUserNameLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -30,21 +29,15 @@ class FollowerCell: UICollectionViewCell {
     
     private func configureAvatartImageVoew() {
         addSubview(avatartImageView)
+        addSubview(userNameLabel)
     
         NSLayoutConstraint.activate([
             avatartImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             avatartImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             avatartImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            avatartImageView.heightAnchor.constraint(equalTo: avatartImageView.widthAnchor)
-        ])
-    }
-    
-    private func configureUserNameLabel() {
-        addSubview(userNameLabel)
-        
-        userNameLabel.textAlignment = .center
-        
-        NSLayoutConstraint.activate([
+            avatartImageView.heightAnchor.constraint(equalToConstant: 100),
+            avatartImageView.widthAnchor.constraint(equalToConstant: 100),
+            
             userNameLabel.topAnchor.constraint(equalTo: avatartImageView.bottomAnchor, constant: 10),
             userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
