@@ -15,6 +15,8 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     var userName : String?
 //    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     var followers : [Follower] = []
+    var page: Int = 1
+    var hasMore: Bool = true
     
     // collection view is similar to Flutter's ListView or GridView
     var collectionView : UICollectionView!
@@ -22,9 +24,10 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureViewContoller()
         configureCollectionView()
-        getFollowers()
+        getFollowers(userName: userName, page: page)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,20 +76,46 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
         return CGSize(width: itemWidth, height: itemWidth + 40) // Square cells for the grid
     }
     
-    private func getFollowers() {
-        NetworkManager.shared.getFollowers(for: userName, page: 1) {[weak self] result in
+    private func getFollowers(userName: String?, page: Int) {
+        NetworkManager.shared.getFollowers(for: userName, page: page) {[weak self] result in
             
             guard let self = self else { return }
             
             switch(result) {
             case .success(let followers):
+                if (followers?.count ?? 0) < 100 { hasMore = false }
                 print("Followers count = \(( followers ?? [] ).count)")
                 print(followers ?? [])
-                self.followers = followers ?? []
+                self.followers.append(contentsOf: followers ?? []) // .addAll() int Dart
                 self.updateData()
             case .failure(let errorMessage) :
                 self.presentGFAlertOnMainThread(title: "Test message", message: errorMessage.rawValue, buttonTitle: "Ok")
             }
         }
     }
+}
+
+
+extension FolloweListVCViewController: UICollectionViewDelegate {
+    
+    // pagination with scroll end
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offset = scrollView.contentOffset.y; // current offset
+        let maxExtent = scrollView.contentSize.height; // entire scroll height
+        let height = scrollView.frame.size.height; // screen height
+        
+        print("offset: \(offset)")
+        print("maxExtent: \(maxExtent)")
+        print("height: \(height)")
+        
+        // if the offset of screen is in the end
+        if(offset > (maxExtent - height)) {
+            guard hasMore else { return }
+            page += 1;
+            getFollowers(userName: userName, page: page)
+        }
+    }
+    
+    
+    
 }
