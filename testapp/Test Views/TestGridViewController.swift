@@ -11,6 +11,7 @@ class TestGridViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var collectionView: UICollectionView!
     let numberOfItems = 100 // Example data count for grid items
+    let padding: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class TestGridViewController: UIViewController, UICollectionViewDataSource, UICo
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 10 // Spacing between items in a row
         layout.minimumLineSpacing = 10 // Spacing between rows
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         // Initialize the collection view with the layout
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -65,11 +67,11 @@ class TestGridViewController: UIViewController, UICollectionViewDataSource, UICo
     
     // DelegateFlowLayout: Define the size for each cell (grid layout)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 10
+       
         let numberOfColumns: CGFloat = 3 // Number of columns in the grid
         let availableWidth = collectionView.frame.width - (padding * (numberOfColumns + 1))
         let itemWidth = availableWidth / numberOfColumns
         
-        return CGSize(width: itemWidth, height: itemWidth) // Square cells for the grid
+        return CGSize(width: itemWidth, height: itemWidth + 40) // Square cells for the grid
     }
 }
