@@ -8,9 +8,8 @@
 import UIKit
 
 class FolloweListVCViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    enum Section {
-        case main
-    }
+    
+    enum Section { case main }
     
     let padding: CGFloat = 10
     var userName : String?
@@ -39,7 +38,7 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     }
     
     private func configureCollectionView() {
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: createThreeColumnLayout())
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: UIHelper.createThreeColumnLayout(view: view, padding: padding))
         collectionView.backgroundColor = .systemBackground
         
         collectionView.dataSource = self
@@ -49,13 +48,6 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
         view.addSubview(collectionView)
     }
     
-    private func createThreeColumnLayout() -> UICollectionViewFlowLayout {
-        let flowLayout = UICollectionViewFlowLayout();
-        flowLayout.minimumInteritemSpacing = 10 // Spacing between items in a row
-        flowLayout.minimumLineSpacing = 10 // Spacing between rows
-        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        return flowLayout
-    }
     
     private func updateData() {
         DispatchQueue.main.async { self.collectionView.reloadData() }
@@ -82,7 +74,10 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     }
     
     private func getFollowers() {
-        NetworkManager.shared.getFollowers(for: userName, page: 1) { result in
+        NetworkManager.shared.getFollowers(for: userName, page: 1) {[weak self] result in
+            
+            guard let self = self else { return }
+            
             switch(result) {
             case .success(let followers):
                 print("Followers count = \(( followers ?? [] ).count)")
