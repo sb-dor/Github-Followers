@@ -5,7 +5,7 @@
 //  Created by Avaz on 23/09/24.
 //
 
-import Foundation
+import UIKit
 
 
 //  Class :
@@ -22,9 +22,11 @@ import Foundation
 //   - No Inheritance: Structs can't have children or parents. Each struct is on its own; they can't inherit anything from other structs.
 //   - Immutable: Once you create a struct, you can't change it. It's like having a notebook with pages that can't be erased or rewritten.
 
+// singleton
 class NetworkManager {
     static let shared = NetworkManager()
     let baseUrl = "https://api.github.com/users/"
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {
         
