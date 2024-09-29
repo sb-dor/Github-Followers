@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // we could create on function that takes 5 parameters
     // but we will keep it simple
     private func createSearchNavigationController() -> UINavigationController{
-        let searchVC = TestGridViewController()
+        let searchVC = SearchVC()
         searchVC.title = "Search"
         // zero is the first item in NavBar
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)

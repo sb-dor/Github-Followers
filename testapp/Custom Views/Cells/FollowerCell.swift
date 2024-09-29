@@ -16,7 +16,7 @@ class FollowerCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureAvatartImageVoew()
+        configureAvatartImageView()
     }
     
     required init?(coder: NSCoder) {
@@ -27,16 +27,18 @@ class FollowerCell: UICollectionViewCell {
         userNameLabel.text = follower?.login
     }
     
-    private func configureAvatartImageVoew() {
+    private func configureAvatartImageView() {
+        avatartImageView.translatesAutoresizingMaskIntoConstraints = false
+        userNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(avatartImageView)
         addSubview(userNameLabel)
-    
+        
         NSLayoutConstraint.activate([
             avatartImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             avatartImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             avatartImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            avatartImageView.heightAnchor.constraint(equalToConstant: 100),
-            avatartImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatartImageView.heightAnchor.constraint(equalTo: avatartImageView.widthAnchor), // Keep the image view square
             
             userNameLabel.topAnchor.constraint(equalTo: avatartImageView.bottomAnchor, constant: 10),
             userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
