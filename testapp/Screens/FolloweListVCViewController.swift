@@ -13,8 +13,9 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     
     let padding: CGFloat = 10
     var userName : String?
-//    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
+    //    var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     var followers : [Follower] = []
+    var filteredFollowers : [Follower] = []
     var page: Int = 1
     var hasMore: Bool = true
     
@@ -58,18 +59,22 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return followers.count
+        return filteredFollowers.isEmpty ? followers.count : filteredFollowers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellView = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.reuseId, for: indexPath)
         as! FollowerCell
-        cellView.set(follower: followers[indexPath.item])
+        if(filteredFollowers.isEmpty){
+            cellView.set(follower: followers[indexPath.item])
+        }else{
+            cellView.set(follower: filteredFollowers[indexPath.item])
+        }
         return cellView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
+        
         let numberOfColumns: CGFloat = 3 // Number of columns in the grid
         let availableWidth = collectionView.frame.width - (padding * (numberOfColumns + 1))
         let itemWidth = availableWidth / numberOfColumns
@@ -108,6 +113,8 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for a user name"
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
     }
 }
@@ -134,10 +141,20 @@ extension FolloweListVCViewController: UICollectionViewDelegate {
     }
 }
 
-extension FolloweListVCViewController : UISearchResultsUpdating {
+extension FolloweListVCViewController : UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        
+        filteredFollowers = followers.filter({ follower in
+            return (follower.login?.lowercased() ?? "").contains(filter.lowercased())
+        })
+        updateData()
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        filteredFollowers.removeAll()
+        updateData()
+    }
     
 }
