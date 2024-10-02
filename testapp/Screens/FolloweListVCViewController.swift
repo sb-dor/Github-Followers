@@ -92,6 +92,11 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
                 print("Followers count = \(( followers ?? [] ).count)")
                 print(followers ?? [])
                 self.followers.append(contentsOf: followers ?? []) // .addAll() int Dart
+                if (self.followers.isEmpty && (followers ?? []).isEmpty){
+                    let titleForEmptyStateView = "This user does not have any followers";
+                    DispatchQueue.main.async { self.showEmptyStateView(title: titleForEmptyStateView, view: self.view) }
+                    return;
+                }
                 self.updateData()
             case .failure(let errorMessage) :
                 self.presentGFAlertOnMainThread(title: "Test message", message: errorMessage.rawValue, buttonTitle: "Ok")
