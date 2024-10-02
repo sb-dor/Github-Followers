@@ -24,7 +24,7 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureSearchController()
         configureViewContoller()
         configureCollectionView()
         getFollowers(userName: userName, page: page)
@@ -103,6 +103,13 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
             }
         }
     }
+    
+    private func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for a user name"
+        navigationItem.searchController = searchController
+    }
 }
 
 
@@ -125,7 +132,12 @@ extension FolloweListVCViewController: UICollectionViewDelegate {
             getFollowers(userName: userName, page: page)
         }
     }
-    
+}
+
+extension FolloweListVCViewController : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
     
     
 }
