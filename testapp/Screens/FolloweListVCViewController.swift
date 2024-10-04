@@ -83,7 +83,28 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
     
     // onselect on item
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let follower: Follower?
         
+        if(filteredFollowers.isEmpty){
+            follower = followers[indexPath.item];
+        }else{
+            follower = filteredFollowers[indexPath.item]
+        }
+        
+        let userInfoViewController = UserInfoVC()
+        userInfoViewController.userName = follower?.login
+        
+        // this code will navigate to the view
+//        navigationController?.pushViewController(userInfoViewController, animated: true)
+        
+        // this code will shoe like whole modal sheet
+        // if we do like this it will appear only screen without buttons on top
+//        present(userInfoViewController, animated: true)
+        
+        // but if we do like this, we can put actions similar to the flutter appbar
+        // but buttons are written inside view controller
+        let navigationModalControlelr = UINavigationController(rootViewController: userInfoViewController)
+        present(navigationModalControlelr, animated: true)
     }
     
     private func getFollowers(userName: String?, page: Int) {
