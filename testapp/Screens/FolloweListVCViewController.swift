@@ -81,6 +81,11 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
         return CGSize(width: itemWidth, height: itemWidth + 40) // Square cells for the grid
     }
     
+    // onselect on item
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
     private func getFollowers(userName: String?, page: Int) {
         
         showLoadingView()
