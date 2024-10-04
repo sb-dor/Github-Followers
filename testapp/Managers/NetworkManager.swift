@@ -52,7 +52,7 @@ class NetworkManager {
         // Creating a data task to fetch data from the constructed URL
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
-            // the _ is optional 
+            // the _ is optional
             // Check if an error occurred during the network request
             if let _ = error {
                 // If an error exists, complete with an error message and return
@@ -87,13 +87,28 @@ class NetworkManager {
                 completed(.success(followers))
             } catch {
                 // If decoding fails, complete with an error message
-//                completed(nil, "Error occurred while decoding data from server")
+                //                completed(nil, "Error occurred while decoding data from server")
                 completed(.failure(.invalidData))
             }
         }
         
         // Start the data task
         task.resume()
+    }
+    
+    func getUser(userName: String? , completed: @escaping (Result<User?, GFErrorMessage>) -> Void) {
+        
+        let endPoint = baseUrl + "";
+        
+        
+        guard let url = URL(string: endPoint) else {
+            completed(.failure(GFErrorMessage.invalidUserName))
+            return;
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response , error in
+            
+        }
     }
     
 }
