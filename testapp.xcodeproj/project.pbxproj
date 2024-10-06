@@ -14,6 +14,7 @@
 		2EBADF702CA8F8830018DF13 /* TestGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */; };
 		2EBADF722CA9070B0018DF13 /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF712CA9070B0018DF13 /* TestListViewController.swift */; };
 		2EBADF772CA954640018DF13 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF762CA954640018DF13 /* UIHelper.swift */; };
+		2EBFD9722CB2C09A00DD65DE /* GFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBFD9712CB2C09A00DD65DE /* GFUserInfoHeaderVC.swift */; };
 		2EC36B8E2CA1CE3600C3951D /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC36B8D2CA1CE3600C3951D /* Follower.swift */; };
 		2EC36B902CA1CFD300C3951D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC36B8F2CA1CFD300C3951D /* User.swift */; };
 		2EC36B942CA1DA2500C3951D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC36B932CA1DA2500C3951D /* NetworkManager.swift */; };
@@ -63,6 +64,7 @@
 		2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGridViewController.swift; sourceTree = "<group>"; };
 		2EBADF712CA9070B0018DF13 /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		2EBADF762CA954640018DF13 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		2EBFD9712CB2C09A00DD65DE /* GFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		2EC36B8D2CA1CE3600C3951D /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		2EC36B8F2CA1CFD300C3951D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2EC36B932CA1DA2500C3951D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF250032CA0759C006597FF /* GFAlertVC.swift */,
+				2EBFD9712CB2C09A00DD65DE /* GFUserInfoHeaderVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				2EF24FC82C9E6FCF006597FF /* ViewController.swift in Sources */,
 				2EF24FF62CA02BB8006597FF /* SearchVC.swift in Sources */,
 				2EC36B942CA1DA2500C3951D /* NetworkManager.swift in Sources */,
+				2EBFD9722CB2C09A00DD65DE /* GFUserInfoHeaderVC.swift in Sources */,
 				2EF24FFC2CA03AA9006597FF /* GFTextField.swift in Sources */,
 				2EF24FC42C9E6FCF006597FF /* AppDelegate.swift in Sources */,
 				2EF250042CA0759C006597FF /* GFAlertVC.swift in Sources */,

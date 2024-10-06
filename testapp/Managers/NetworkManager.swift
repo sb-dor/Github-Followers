@@ -134,6 +134,8 @@ class NetworkManager {
                 completed(.failure(.invalidResponse))
             }
         }
+        
+        task.resume()
     }
     
 }
