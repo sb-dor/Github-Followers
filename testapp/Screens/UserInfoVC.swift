@@ -48,8 +48,8 @@ class UserInfoVC: UIViewController {
 //        view.addSubview(itemViewOne)
 //        view.addSubview(itemViewTwo)
         
-        itemViewOne.backgroundColor = .systemPink
-        itemViewTwo.backgroundColor = .systemBlue
+//        itemViewOne.backgroundColor = .systemPink
+//        itemViewTwo.backgroundColor = .systemBlue
 
         // this code was written inside for loop
 //        headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -96,6 +96,8 @@ class UserInfoVC: UIViewController {
             case .success(let user):
                 DispatchQueue.main.async{
                     self.add(childVC: GFUserInfoHeaderVC(user: user), continerView: self.headerView)
+                    self.add(childVC: GfRepoItemVC(user: user), continerView: self.itemViewOne)
+                    self.add(childVC: GfFollowerItemVC(user: user), continerView: self.itemViewTwo)
                 }
 //                print("user name is: \(user)")
             }

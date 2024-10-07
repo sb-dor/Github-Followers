@@ -13,6 +13,8 @@
 		2E84DA002CAB8CE20049DDE1 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84D9FF2CAB8CE20049DDE1 /* GFEmptyStateView.swift */; };
 		2E947C182CB4337800068865 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E947C172CB4337800068865 /* GFItemInfoView.swift */; };
 		2E947C1A2CB43D5100068865 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E947C192CB43D5100068865 /* GFItemInfoVC.swift */; };
+		2E947C1C2CB4412700068865 /* GfRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E947C1B2CB4412700068865 /* GfRepoItemVC.swift */; };
+		2E947C1E2CB4437400068865 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E947C1D2CB4437400068865 /* GFFollowerItemVC.swift */; };
 		2EBADF702CA8F8830018DF13 /* TestGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */; };
 		2EBADF722CA9070B0018DF13 /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF712CA9070B0018DF13 /* TestListViewController.swift */; };
 		2EBADF772CA954640018DF13 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF762CA954640018DF13 /* UIHelper.swift */; };
@@ -67,6 +69,8 @@
 		2E84D9FF2CAB8CE20049DDE1 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		2E947C172CB4337800068865 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		2E947C192CB43D5100068865 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
+		2E947C1B2CB4412700068865 /* GfRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GfRepoItemVC.swift; sourceTree = "<group>"; };
+		2E947C1D2CB4437400068865 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGridViewController.swift; sourceTree = "<group>"; };
 		2EBADF712CA9070B0018DF13 /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		2EBADF762CA954640018DF13 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -213,9 +217,9 @@
 		2E84D9FD2CAB8C5E0049DDE1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E947C202CB443FE00068865 /* ItemInfoVC */,
 				2EF250032CA0759C006597FF /* GFAlertVC.swift */,
 				2EBFD9712CB2C09A00DD65DE /* GFUserInfoHeaderVC.swift */,
-				2E947C192CB43D5100068865 /* GFItemInfoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -228,6 +232,16 @@
 				2EBFD9732CB2C13E00DD65DE /* GFSecondaryTitleLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		2E947C202CB443FE00068865 /* ItemInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				2E947C192CB43D5100068865 /* GFItemInfoVC.swift */,
+				2E947C1B2CB4412700068865 /* GfRepoItemVC.swift */,
+				2E947C1D2CB4437400068865 /* GFFollowerItemVC.swift */,
+			);
+			path = ItemInfoVC;
 			sourceTree = "<group>";
 		};
 		2EBADF6E2CA8F8540018DF13 /* Test Views */ = {
@@ -470,6 +484,7 @@
 				2EF250042CA0759C006597FF /* GFAlertVC.swift in Sources */,
 				2EF24FFA2CA03516006597FF /* GFButton.swift in Sources */,
 				2EC36B902CA1CFD300C3951D /* User.swift in Sources */,
+				2E947C1E2CB4437400068865 /* GFFollowerItemVC.swift in Sources */,
 				2E0201AD2CA31F1C003690AF /* FollowerCell.swift in Sources */,
 				2EF24FC62C9E6FCF006597FF /* SceneDelegate.swift in Sources */,
 				2EF250022CA074CA006597FF /* GFBodyLabel.swift in Sources */,
@@ -478,6 +493,7 @@
 				2EF24FF82CA02BDF006597FF /* FavoriteListVC.swift in Sources */,
 				2EF250002CA07323006597FF /* GFTitleLabel.swift in Sources */,
 				2EF24FF42CA02226006597FF /* TestSwiftLearning.swift in Sources */,
+				2E947C1C2CB4412700068865 /* GfRepoItemVC.swift in Sources */,
 				2EDA79A92CAF7BD100809146 /* UserInfoVC.swift in Sources */,
 				2E947C1A2CB43D5100068865 /* GFItemInfoVC.swift in Sources */,
 				2EBFD9762CB2DCD700DD65DE /* Constants.swift in Sources */,

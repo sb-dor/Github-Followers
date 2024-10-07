@@ -56,7 +56,7 @@ class GFItemInfoView: UIView {
         ])
     }
     
-    func set(itemInfoType: ItemInfoType, count: Int) {
+    func set(itemInfoType: ItemInfoType, count: Int?) {
         switch(itemInfoType) {
         case .repos:
             symbolImageView.image = UIImage(systemName: SfSymbols.repos)
@@ -71,7 +71,7 @@ class GFItemInfoView: UIView {
             symbolImageView.image = UIImage(systemName: SfSymbols.following)
             titleLabel.text = "Following"
         }
-        countLabel.text = "\(count)"
+        countLabel.text = "\((count ?? 0))"
     }
     
     

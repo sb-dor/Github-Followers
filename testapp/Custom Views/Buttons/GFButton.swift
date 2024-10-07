@@ -36,6 +36,12 @@ class GFButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
         
     }
+    
+    func set(background: UIColor, title: String) {
+        self.backgroundColor = background
+        self.setTitle(title, for: .normal) // for is several type of button like, selected, normal
+//        configure()
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
