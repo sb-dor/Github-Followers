@@ -12,33 +12,15 @@ class UserInfoVC: UIViewController {
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    var itemViews : [UIView] = []
     
     var userName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        title = userName ?? "-"
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissPopup))
-        navigationItem.rightBarButtonItem = doneButton
-        
-        NetworkManager.shared.getUserInfo(userName: userName) { [weak self] result in
-            
-            guard let self = self else { return }
-            
-            switch(result) {
-                case .failure(let error) :
-                self.presentGFAlertOnMainThread(title: "Test message", message: error.rawValue, buttonTitle: "Ok")
-                break;
-            case .success(let user):
-                DispatchQueue.main.async{
-                    self.add(childVC: GFUserInfoHeaderVC(user: user), continerView: self.headerView)
-                }
-//                print("user name is: \(user)")
-            }
-        }
-        
+        configureViewController()
         callUILayout()
+        getUserInfo()
     }
     
     
@@ -46,17 +28,33 @@ class UserInfoVC: UIViewController {
         dismiss(animated: true)
     }
     
+    private func configureViewController() {
+        view.backgroundColor = .systemBackground
+        title = userName ?? "-"
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissPopup))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
     private func callUILayout() {
-        view.addSubview(headerView)
-        view.addSubview(itemViewOne)
-        view.addSubview(itemViewTwo)
+        itemViews = [headerView, itemViewOne, itemViewTwo]
+        
+        for each in itemViews {
+            view.addSubview(each)
+            each.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        // this code was written inside for loop
+//        view.addSubview(headerView)
+//        view.addSubview(itemViewOne)
+//        view.addSubview(itemViewTwo)
         
         itemViewOne.backgroundColor = .systemPink
         itemViewTwo.backgroundColor = .systemBlue
 
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        itemViewOne.translatesAutoresizingMaskIntoConstraints = false
-        itemViewTwo.translatesAutoresizingMaskIntoConstraints = false
+        // this code was written inside for loop
+//        headerView.translatesAutoresizingMaskIntoConstraints = false
+//        itemViewOne.translatesAutoresizingMaskIntoConstraints = false
+//        itemViewTwo.translatesAutoresizingMaskIntoConstraints = false
         
         let padding: CGFloat = 20
         let itemHeight: CGFloat = 140
@@ -72,10 +70,10 @@ class UserInfoVC: UIViewController {
             itemViewOne.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
             
-            itemViewOne.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
-            itemViewOne.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            itemViewOne.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
-            itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
+            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
+            itemViewTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            itemViewTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
         ])
     }
     
@@ -84,6 +82,24 @@ class UserInfoVC: UIViewController {
         continerView.addSubview(childVC.view)
         childVC.view.frame = view.bounds
         childVC.didMove(toParent: self)
+    }
+    
+    private func getUserInfo() {
+        NetworkManager.shared.getUserInfo(userName: userName) { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch(result) {
+                case .failure(let error) :
+                self.presentGFAlertOnMainThread(title: "Test message", message: error.rawValue, buttonTitle: "Ok")
+                break;
+            case .success(let user):
+                DispatchQueue.main.async{
+                    self.add(childVC: GFUserInfoHeaderVC(user: user), continerView: self.headerView)
+                }
+//                print("user name is: \(user)")
+            }
+        }
     }
     
 }

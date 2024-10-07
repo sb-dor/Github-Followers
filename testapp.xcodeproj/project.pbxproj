@@ -11,6 +11,7 @@
 		2E0201B12CA3201C003690AF /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0201B02CA3201C003690AF /* GFAvatarImageView.swift */; };
 		2E3A49562CA254460081DD58 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A49552CA254460081DD58 /* ErrorMessage.swift */; };
 		2E84DA002CAB8CE20049DDE1 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84D9FF2CAB8CE20049DDE1 /* GFEmptyStateView.swift */; };
+		2E947C182CB4337800068865 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E947C172CB4337800068865 /* GFItemInfoView.swift */; };
 		2EBADF702CA8F8830018DF13 /* TestGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */; };
 		2EBADF722CA9070B0018DF13 /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF712CA9070B0018DF13 /* TestListViewController.swift */; };
 		2EBADF772CA954640018DF13 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF762CA954640018DF13 /* UIHelper.swift */; };
@@ -63,6 +64,7 @@
 		2E0201B02CA3201C003690AF /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		2E3A49552CA254460081DD58 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		2E84D9FF2CAB8CE20049DDE1 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		2E947C172CB4337800068865 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGridViewController.swift; sourceTree = "<group>"; };
 		2EBADF712CA9070B0018DF13 /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		2EBADF762CA954640018DF13 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				2E84D9FF2CAB8CE20049DDE1 /* GFEmptyStateView.swift */,
+				2E947C172CB4337800068865 /* GFItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			files = (
 				2EBADF702CA8F8830018DF13 /* TestGridViewController.swift in Sources */,
 				2EF250062CA07D49006597FF /* ViewController+Ext.swift in Sources */,
+				2E947C182CB4337800068865 /* GFItemInfoView.swift in Sources */,
 				2E3A49562CA254460081DD58 /* ErrorMessage.swift in Sources */,
 				2EBADF772CA954640018DF13 /* UIHelper.swift in Sources */,
 				2E0201B12CA3201C003690AF /* GFAvatarImageView.swift in Sources */,
