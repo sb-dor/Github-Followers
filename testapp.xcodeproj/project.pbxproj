@@ -12,6 +12,7 @@
 		2E3A49562CA254460081DD58 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A49552CA254460081DD58 /* ErrorMessage.swift */; };
 		2E84DA002CAB8CE20049DDE1 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84D9FF2CAB8CE20049DDE1 /* GFEmptyStateView.swift */; };
 		2E947C182CB4337800068865 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E947C172CB4337800068865 /* GFItemInfoView.swift */; };
+		2E947C1A2CB43D5100068865 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E947C192CB43D5100068865 /* GFItemInfoVC.swift */; };
 		2EBADF702CA8F8830018DF13 /* TestGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */; };
 		2EBADF722CA9070B0018DF13 /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF712CA9070B0018DF13 /* TestListViewController.swift */; };
 		2EBADF772CA954640018DF13 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBADF762CA954640018DF13 /* UIHelper.swift */; };
@@ -65,6 +66,7 @@
 		2E3A49552CA254460081DD58 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		2E84D9FF2CAB8CE20049DDE1 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		2E947C172CB4337800068865 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
+		2E947C192CB43D5100068865 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
 		2EBADF6F2CA8F8830018DF13 /* TestGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGridViewController.swift; sourceTree = "<group>"; };
 		2EBADF712CA9070B0018DF13 /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		2EBADF762CA954640018DF13 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				2EF250032CA0759C006597FF /* GFAlertVC.swift */,
 				2EBFD9712CB2C09A00DD65DE /* GFUserInfoHeaderVC.swift */,
+				2E947C192CB43D5100068865 /* GFItemInfoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				2EF250002CA07323006597FF /* GFTitleLabel.swift in Sources */,
 				2EF24FF42CA02226006597FF /* TestSwiftLearning.swift in Sources */,
 				2EDA79A92CAF7BD100809146 /* UserInfoVC.swift in Sources */,
+				2E947C1A2CB43D5100068865 /* GFItemInfoVC.swift in Sources */,
 				2EBFD9762CB2DCD700DD65DE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
