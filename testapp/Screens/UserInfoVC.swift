@@ -12,6 +12,7 @@ class UserInfoVC: UIViewController {
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    let dateLabel = GFBodyLabel(textAlignment: .center)
     var itemViews : [UIView] = []
     
     var userName: String?
@@ -36,7 +37,7 @@ class UserInfoVC: UIViewController {
     }
     
     private func callUILayout() {
-        itemViews = [headerView, itemViewOne, itemViewTwo]
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for each in itemViews {
             view.addSubview(each)
@@ -74,22 +75,18 @@ class UserInfoVC: UIViewController {
             itemViewTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             itemViewTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
             itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
     private func add(childVC: UIViewController, continerView: UIView) {
         addChild(childVC)
         continerView.addSubview(childVC.view)
-        
-        childVC.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            childVC.view.topAnchor.constraint(equalTo: continerView.topAnchor),
-            childVC.view.leadingAnchor.constraint(equalTo: continerView.leadingAnchor),
-            childVC.view.trailingAnchor.constraint(equalTo: continerView.trailingAnchor),
-            childVC.view.bottomAnchor.constraint(equalTo: continerView.bottomAnchor)
-        ])
-        
+        childVC.view.frame = continerView.bounds
         childVC.didMove(toParent: self)
     }
     
@@ -107,6 +104,7 @@ class UserInfoVC: UIViewController {
                     self.add(childVC: GFUserInfoHeaderVC(user: user), continerView: self.headerView)
                     self.add(childVC: GfRepoItemVC(user: user), continerView: self.itemViewOne)
                     self.add(childVC: GfFollowerItemVC(user: user), continerView: self.itemViewTwo)
+                    self.dateLabel.text = "GitHub Since \(user?.createdAt?.convertToDisplayFormat() ?? "")"
                 }
                 //                print("user name is: \(user)")
             }
