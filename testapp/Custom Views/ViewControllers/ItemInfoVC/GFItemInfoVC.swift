@@ -19,8 +19,9 @@ class GFItemInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
-        layoutUI()
         configureStackView()
+        layoutUI()
+        
     }
     
     init(user: User?) {
@@ -58,8 +59,8 @@ class GFItemInfoVC: UIViewController {
             stackView.heightAnchor.constraint(equalToConstant: 50),
             
             actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
-            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }

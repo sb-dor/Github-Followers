@@ -44,17 +44,17 @@ class UserInfoVC: UIViewController {
         }
         
         // this code was written inside for loop
-//        view.addSubview(headerView)
-//        view.addSubview(itemViewOne)
-//        view.addSubview(itemViewTwo)
+        //        view.addSubview(headerView)
+        //        view.addSubview(itemViewOne)
+        //        view.addSubview(itemViewTwo)
         
 //        itemViewOne.backgroundColor = .systemPink
 //        itemViewTwo.backgroundColor = .systemBlue
-
+        
         // this code was written inside for loop
-//        headerView.translatesAutoresizingMaskIntoConstraints = false
-//        itemViewOne.translatesAutoresizingMaskIntoConstraints = false
-//        itemViewTwo.translatesAutoresizingMaskIntoConstraints = false
+        //        headerView.translatesAutoresizingMaskIntoConstraints = false
+        //        itemViewOne.translatesAutoresizingMaskIntoConstraints = false
+        //        itemViewTwo.translatesAutoresizingMaskIntoConstraints = false
         
         let padding: CGFloat = 20
         let itemHeight: CGFloat = 140
@@ -67,9 +67,9 @@ class UserInfoVC: UIViewController {
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            itemViewOne.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
+            itemViewOne.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
-            
+            //
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
             itemViewTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             itemViewTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
@@ -80,7 +80,16 @@ class UserInfoVC: UIViewController {
     private func add(childVC: UIViewController, continerView: UIView) {
         addChild(childVC)
         continerView.addSubview(childVC.view)
-        childVC.view.frame = view.bounds
+        
+        childVC.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            childVC.view.topAnchor.constraint(equalTo: continerView.topAnchor),
+            childVC.view.leadingAnchor.constraint(equalTo: continerView.leadingAnchor),
+            childVC.view.trailingAnchor.constraint(equalTo: continerView.trailingAnchor),
+            childVC.view.bottomAnchor.constraint(equalTo: continerView.bottomAnchor)
+        ])
+        
         childVC.didMove(toParent: self)
     }
     
@@ -90,7 +99,7 @@ class UserInfoVC: UIViewController {
             guard let self = self else { return }
             
             switch(result) {
-                case .failure(let error) :
+            case .failure(let error) :
                 self.presentGFAlertOnMainThread(title: "Test message", message: error.rawValue, buttonTitle: "Ok")
                 break;
             case .success(let user):
@@ -99,7 +108,7 @@ class UserInfoVC: UIViewController {
                     self.add(childVC: GfRepoItemVC(user: user), continerView: self.itemViewOne)
                     self.add(childVC: GfFollowerItemVC(user: user), continerView: self.itemViewTwo)
                 }
-//                print("user name is: \(user)")
+                //                print("user name is: \(user)")
             }
         }
     }
