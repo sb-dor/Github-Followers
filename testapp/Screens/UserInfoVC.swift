@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import SafariServices
 
-protocol UserInfoVCDelegate: class {
-    func didTapGithubProfile()
-    func didTapGetFollowers()
+protocol UserInfoVCDelegate: AnyObject {
+    func didTapGithubProfile(user: User?)
+    func didTapGetFollowers(user: User?)
 }
 
 class UserInfoVC: UIViewController {
@@ -125,11 +126,19 @@ class UserInfoVC: UIViewController {
 }
 
 extension UserInfoVC: UserInfoVCDelegate {
-    func didTapGithubProfile() {
-        print("gihub profile button was clicked")
+    // function than opens Safari browser with specific URL
+    func didTapGithubProfile(user: User?) {
+        guard let url = URL(string: user?.htmlUrl ?? "") else {
+            self.presentGFAlertOnMainThread(title: "Invalid url", message: "no url", buttonTitle: "Ok")
+            return;
+        }
+        
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
     }
     
-    func didTapGetFollowers() {
+    func didTapGetFollowers(user: User?) {
         print("follower button was tapped")
     }
     
