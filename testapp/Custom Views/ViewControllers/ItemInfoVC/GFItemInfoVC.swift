@@ -15,13 +15,15 @@ class GFItemInfoVC: UIViewController {
     let actionButton = GFButton()
     
     var user: User!
+    
+    var delegate: UserInfoVCDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
         configureStackView()
         layoutUI()
-        
+        configureActionButton()
     }
     
     init(user: User?) {
@@ -44,6 +46,12 @@ class GFItemInfoVC: UIViewController {
         stackView.addArrangedSubview(itemInfoOne)
         stackView.addArrangedSubview(iteminfoTwo)
     }
+    
+    private func configureActionButton() {
+        actionButton.addTarget(self, action: #selector(actionButtonOnTap), for: .touchUpInside)
+    }
+    
+    @objc func actionButtonOnTap() {}
     
     private func layoutUI() {
         view.addSubview(stackView)

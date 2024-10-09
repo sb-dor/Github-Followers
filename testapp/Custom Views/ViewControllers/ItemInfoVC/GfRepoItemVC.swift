@@ -18,7 +18,10 @@ class GfRepoItemVC: GFItemInfoVC {
         itemInfoOne.set(itemInfoType: .repos, count: user.publicRepos)
         iteminfoTwo.set(itemInfoType: .gists, count: user.publicGists)
         actionButton.set(background: .systemPurple, title: "Github Profile")
-        
+    }
+    
+    override func actionButtonOnTap() {
+        delegate.didTapGithubProfile()
     }
     
 }

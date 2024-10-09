@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol UserInfoVCDelegate: class {
+    func didTapGithubProfile()
+    func didTapGetFollowers()
+}
+
 class UserInfoVC: UIViewController {
     
     let headerView = UIView()
@@ -102,13 +107,31 @@ class UserInfoVC: UIViewController {
             case .success(let user):
                 DispatchQueue.main.async{
                     self.add(childVC: GFUserInfoHeaderVC(user: user), continerView: self.headerView)
-                    self.add(childVC: GfRepoItemVC(user: user), continerView: self.itemViewOne)
-                    self.add(childVC: GfFollowerItemVC(user: user), continerView: self.itemViewTwo)
+                    let repoItem = GfRepoItemVC(user: user)
+                    let followerItem = GfFollowerItemVC(user: user)
+                    repoItem.delegate = self
+                    followerItem.delegate = self
+                    
+                    
+                    
+                    self.add(childVC: repoItem, continerView: self.itemViewOne)
+                    self.add(childVC: followerItem, continerView: self.itemViewTwo)
                     self.dateLabel.text = "GitHub Since \(user?.createdAt?.convertToDisplayFormat() ?? "")"
                 }
                 //                print("user name is: \(user)")
             }
         }
     }
+}
+
+extension UserInfoVC: UserInfoVCDelegate {
+    func didTapGithubProfile() {
+        print("gihub profile button was clicked")
+    }
+    
+    func didTapGetFollowers() {
+        print("follower button was tapped")
+    }
+    
     
 }
