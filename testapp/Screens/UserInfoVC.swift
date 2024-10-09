@@ -23,6 +23,8 @@ class UserInfoVC: UIViewController {
     
     var userName: String?
     
+    weak var followersListVCDelegate: FolloweListVCDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -133,13 +135,13 @@ extension UserInfoVC: UserInfoVCDelegate {
             return;
         }
         
-        let safariVC = SFSafariViewController(url: url)
-        safariVC.preferredControlTintColor = .systemGreen
-        present(safariVC, animated: true)
+        openSafariByURL(url: url)
+        
     }
     
     func didTapGetFollowers(user: User?) {
-        print("follower button was tapped")
+        followersListVCDelegate.didRequestFollowers(userName: user?.login)
+        dismissPopup()
     }
     
     

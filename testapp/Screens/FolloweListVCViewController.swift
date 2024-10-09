@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FolloweListVCDelegate: AnyObject {
+    func didRequestFollowers(userName: String?)
+}
+
 class FolloweListVCViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     enum Section { case main }
@@ -103,6 +107,7 @@ class FolloweListVCViewController: UIViewController, UICollectionViewDataSource,
         
         // but if we do like this, we can put actions similar to the flutter appbar
         // but buttons are written inside view controller
+        userInfoViewController.followersListVCDelegate = self
         let navigationModalControlelr = UINavigationController(rootViewController: userInfoViewController)
         present(navigationModalControlelr, animated: true)
     }
@@ -183,4 +188,16 @@ extension FolloweListVCViewController : UISearchResultsUpdating, UISearchBarDele
         updateData()
     }
     
+}
+
+extension FolloweListVCViewController: FolloweListVCDelegate {
+    func didRequestFollowers(userName: String?) {
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        title = userName
+        page = 1
+        hasMore = true
+        getFollowers(userName: userName, page: page)
+        
+    }
 }

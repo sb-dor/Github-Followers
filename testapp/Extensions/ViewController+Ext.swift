@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 // nothing can access to this variable unless this file
 fileprivate var containerView: UIView!
@@ -59,5 +60,11 @@ extension UIViewController {
         let emptyStateView = GFEmptyStateView(title: title)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
+    }
+    
+    func openSafariByURL(url: URL) {
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
     }
 }
